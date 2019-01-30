@@ -1,0 +1,49 @@
+<Window
+  x:Class="XTUPairer.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:tb="http://www.hardcodet.net/taskbar"
+  xmlns:local="clr-namespace:XTUPairer"
+  mc:Ignorable="d"
+  TextElement.FontWeight="Regular"
+  TextOptions.TextFormattingMode="Ideal"
+  TextOptions.TextRenderingMode="Auto"
+  ResizeMode="NoResize"
+  Icon="XTUPairer.ico"
+  Title="XTUPairer" Height="320" Width="480"
+  WindowStartupLocation="CenterScreen"
+  d:DataContext="{d:DesignInstance {x:Type local:MainWindow}, IsDesignTimeCreatable=True}"
+  DataContext="{Binding RelativeSource={RelativeSource Self}, Mode=OneWay}">
+
+  <Window.Resources>
+    <ContextMenu x:Key="ContextMenu">
+      <MenuItem Header="表示" Command="{Binding ShowCommand, Mode=OneWay}" />
+      <Separator />
+      <MenuItem Header="終了する" Command="{Binding EndCommand, Mode=OneWay}" />
+    </ContextMenu>
+
+    <ToolTip x:Key="TrayIconToolTip" Content="XTUPairer" />
+  </Window.Resources>
+
+  <Grid Margin="20">
+    <tb:TaskbarIcon
+      IconSource="XTUPairer.ico"
+      TrayToolTip="{StaticResource TrayIconToolTip}"
+      ContextMenu="{StaticResource ContextMenu}"
+      DoubleClickCommand="{Binding ToggleCommand, Mode=OneWay}" />
+
+    <DockPanel>
+      <StackPanel DockPanel.Dock="Top" VerticalAlignment="Top">
+        <Label Content="XTUPairer" FontSize="32" />
+        <TextBlock Margin="8 20 8 8" TextWrapping="WrapWithOverflow">
+        Intel&#174; Extream Tuning Utility の Auto-Profile Pairing の Pairing 対象として使用するための常駐アプリケーションです。<LineBreak /><LineBreak />
+        このアプリケーションはただ常駐するだけでその他一切の処理を行いません。
+        </TextBlock>
+      </StackPanel>
+
+      <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Width="150" VerticalAlignment="Bottom" Content="終了する" Command="{Binding EndCommand, Mode=OneWay}" />
+    </DockPanel>
+  </Grid>
+</Window>
