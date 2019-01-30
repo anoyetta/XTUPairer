@@ -38,8 +38,8 @@
       <StackPanel DockPanel.Dock="Top" VerticalAlignment="Top">
         <Label Content="XTUPairer" FontSize="32" />
         <TextBlock Margin="8 20 8 8" TextWrapping="WrapWithOverflow">
-        Intel&#174; Extream Tuning Utility の Auto-Profile Pairing の Pairing 対象として使用するための常駐アプリケーションです。<LineBreak /><LineBreak />
-        このアプリケーションはただ常駐するだけでその他一切の処理を行いません。
+        Intel&#174; Extream Tuning Utility の Auto-Profile Pairing の Pairing 対象として使用するためだけの常駐アプリケーションです。<LineBreak /><LineBreak />
+        このアプリケーションはただ常駐するだけでその他の一切の処理を行いません。
         </TextBlock>
       </StackPanel>
 
